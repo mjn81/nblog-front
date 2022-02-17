@@ -42,7 +42,7 @@ const MainNav = () => {
         },
     ]
     return ( 
-        <div className="flex items-center justify-between px-8">
+        <div className="flex items-center justify-between px-8 py-3">
             <h1 className="uppercase text-4xl w-1/4 font-extralight">
                 <span className="text-indigo-600">nb</span>blog
             </h1>
