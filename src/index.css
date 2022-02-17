@@ -7,11 +7,37 @@
   animation: scanim 15s linear infinite;
 }
 
+.scoroll-animation:hover{
+  animation-play-state: paused;
+}
+
 @keyframes scanim {
   0% {
-    transform: translateX(30%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
   }
+}
+@keyframes menu-moveup {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) rotatex(90deg);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) rotatex(0);
+	}
+}
+
+.main-menu>li>ul{
+  display: none;
+  transform-origin: top;
+  animation: menu-moveup 500ms both;
+  box-shadow: 0 0 10px #00000014 !important;
+  -webkit-box-shadow: 0 0 10px #0000000e !important;
+  -moz-box-shadow: 0 0 10px #00000014 !important;
+}
+.main-menu>li:hover>ul{
+  display: block;
 }
