@@ -44,7 +44,7 @@ const MainNav = () => {
     return ( 
         <div className="flex items-center justify-between px-8 py-3">
             <h1 className="uppercase text-4xl w-1/4 font-extralight">
-                <span className="text-indigo-600">nb</span>blog
+                <span className="text-indigo-600">nb</span>log
             </h1>
             <nav className="py-4 w-1/2 text-gray-800 ">
                 <ul className="flex w-full text-lg justify-center main-menu">
