@@ -54,3 +54,7 @@
 .p-title:hover img{
     transform: scale(1.2);
 }
+
+.side-list-hover > li:hover {
+    @apply text-gray-700;
+}

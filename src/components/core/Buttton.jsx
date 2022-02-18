@@ -7,10 +7,10 @@ export const SquareButton = ({onClick , children , bgColor=null, adclass=null}) 
     );
 }
  
-export const FullButton = () => {
+export const FullButton = ({onClick ,children , adClass}) => {
     return (
-        <button>
-
+        <button onClick={onClick} className={'w-full rounded-md py-1.5 text-white border-none outline-none bg-indigo-700 ' + adClass}>
+            {children}
         </button>
     );
 }

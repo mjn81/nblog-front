@@ -26,7 +26,7 @@ const Home = () => {
         <>
             <Slider/>
             <ContentLayout>
-                <SectionCard>
+                <SectionCard title="latest news">
                     {p.map(({id, title, img, description, date, categories}) => (
                         <Post key={id} id={id} title={title} img={img} description={description}
                               date={date} badges={categories}/>

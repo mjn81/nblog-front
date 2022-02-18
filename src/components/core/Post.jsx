@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 
 export const Post = ({id, title, badges, img, description, date}) => {
 
-    const limit = 300;
+    const limit = 250;
     const trimmedStr = description.substring(0, limit);
     const shortStr = description.substring(0, Math.min(limit, trimmedStr.lastIndexOf(' ')));
     return (
         <article
-            className="bg-white my-5 relative p-6 rounded-lg grid grid-cols-7 gap-4 transition-shadow duration-200 ease-in p-title hover:shadow-xl">
+            className="bg-white my-5 relative p-6 rounded-lg grid grid-cols-7 gap-4 transition-shadow duration-200 ease-in p-title hover:shadow-lg">
             <div className="absolute w-max text-center right-6 bg-gray-50 p-3 text-gray-400 text-xs rounded-b-lg">
                 <p>{date.day}</p>
                 <p>{date.month}</p>
