@@ -31,13 +31,26 @@
 }
 
 .main-menu>li>ul{
-  display: none;
+    display: none;
   transform-origin: top;
-  animation: menu-moveup 500ms both;
+  animation: menu-moveup 500ms  both;
   box-shadow: 0 0 10px #00000014 !important;
   -webkit-box-shadow: 0 0 10px #0000000e !important;
   -moz-box-shadow: 0 0 10px #00000014 !important;
 }
 .main-menu>li:hover>ul{
-  display: block;
+    display: block;
+
+}
+
+.w-fix-1120{
+    width: 1120px;
+}
+
+.h-500{
+    height: 500px;
+}
+
+.p-title:hover img{
+    transform: scale(1.2);
 }

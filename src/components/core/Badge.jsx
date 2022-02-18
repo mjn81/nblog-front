@@ -1,6 +1,8 @@
-export const Badge = ({children}) => {
+export const Badge = ({children , bgColor=null , adClass=null}) => {
+
     return ( 
-        <div className="bg-indigo-800 w-fit px-3 rounded-xl">
+        <div className={'w-fit px-3 rounded-xl text-white' + (bgColor ?? ' bg-indigo-800')
+            + (adClass ?  (' '+adClass) : '')}>
             {children}
         </div>
      );

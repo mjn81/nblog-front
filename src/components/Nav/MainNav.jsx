@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBars, faChevronDown, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons"
 import SubMenItem from "./SubMenItem";
-import { OutlineButton, SquareButton } from "../core/Buttton";
+import { OutlineButton, SquareButton } from "../core";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 const MainNav = () => {
     const categories = [
@@ -60,7 +60,7 @@ const MainNav = () => {
                                 }
                             </Link>
                             {subCat &&
-                                <ul className="absolute top-full left-1/2 py-4 w-max bg-white">
+                                <ul className="absolute z-50 rounded-sm top-full left-1/2 py-4 w-max bg-white">
                                     {subCat?.map((subItem) => (
                                         <SubMenItem key={subItem.id} item={subItem} />
                                     ))}
