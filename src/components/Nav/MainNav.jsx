@@ -4,6 +4,8 @@ import {faBars, faChevronDown, faMagnifyingGlass} from "@fortawesome/free-solid-
 import SubMenItem from "./SubMenItem";
 import { OutlineButton, SquareButton } from "../core";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import {useState} from "react";
+import {Search} from "./Portals";
 const MainNav = () => {
     const categories = [
         {
@@ -41,9 +43,10 @@ const MainNav = () => {
             id:4,
         },
     ];
-
-
-
+    const [visible , setVisible] = useState(false);
+    const onSearchClick = () => {
+        setVisible(true);
+    }
 
     return ( 
         <div className="flex items-center justify-between px-8 py-3">
@@ -78,13 +81,14 @@ const MainNav = () => {
                 <OutlineButton adclass="text-2xl mr-3 text-indigo-600">
                     <FontAwesomeIcon icon={faMoon} />   
                 </OutlineButton>
-                <SquareButton adclass="mr-3">
+                <SquareButton adclass="mr-3" onClick={onSearchClick}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </SquareButton>
                 <SquareButton>
                     <FontAwesomeIcon icon={faBars} />
                 </SquareButton>
             </section>
+            <Search visible={visible} setVisible={setVisible} />
         </div>
      );
 }
