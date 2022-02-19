@@ -48,7 +48,7 @@ const LatestNews = () => {
                     <li key={post.id}
                         className={"flex py-2.5 border-dashed border-gray-200 mx-2" + (index < p.length - 1 ? ' border-b-2' : '')}>
                         <Link to={`/post-page/${post.id}`}><img src={post.img} alt={post.title}
-                                                               className="w-12 h-12 rounded-[256px] border-2 transition-colors duration-200 ease-in hover:border-indigo-600"/></Link>
+                                                               className="w-12 h-12 rounded-full border-2 transition-colors duration-200 ease-in hover:border-indigo-600"/></Link>
                         <section className="ml-3">
                             <Link to={`/post-page/${post.id}`}
                                   className="whitespace-nowrap text-gray-700 transition-colors duration-200 ease-in hover:text-indigo-800">

@@ -1,6 +1,7 @@
 import SideSearch from "./SideSearch";
 import SideList from "./SideList";
 import LatestNews from "./LatestNews";
+import SocialSideBar from "./Socials";
 
 const SideBar = () => {
     const categories = [
@@ -58,8 +59,10 @@ const SideBar = () => {
     return (
         <div className="grid  gap-4">
             <SideSearch />
+            <SocialSideBar />
             <SideList title="Categories" list={categories} />
             <LatestNews />
+
         </div>
     );
 };

@@ -1,28 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram ,faTelegram,faTwitter,faSkype,faDribbble } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
+import {icons , socialData} from '../icons';
+
 const SocialNav = () => {
-    const links = [
-        'telegram.com',
-        'insta.com',
-        'drbl.com',
-        'twtr.com',
-        'skype.com',        
-    ]
-    const icons = [
-        faInstagram,
-        faTwitter,
-        faTelegram,
-        faDribbble,
-        faSkype
-    ]
+
     return (  
         <ul className="flex text-sm">
-            {icons.map((ic, index) => (
-                <li key={index} className="mx-1">
-                    <Link to={links[index]} className="py-1 px-2 rounded-md bg-indigo-800">
-                        <FontAwesomeIcon icon={ic} />
-                    </Link>
+            {socialData.map((scData)=>(
+                <li key={scData.id} className="mx-1">
+                    <a href={scData.link} className="py-1 px-2 rounded-md bg-indigo-800">
+                        <FontAwesomeIcon icon={icons[scData.icon_id]} />
+                    </a>
                 </li>
             ))}
         </ul>
