@@ -46,12 +46,12 @@ const LatestNews = () => {
             <ul className="pb-2">
                 {p.map((post, index) => (
                     <li key={post.id}
-                        className={"flex py-2.5 border-dashed border-gray-200 mx-2" + (index < p.length - 1 ? ' border-b-2' : '')}>
+                        className={"flex py-2.5 border-dashed border-gray-200 mx-2 li-side-hover" + (index < p.length - 1 ? ' border-b-2' : '')}>
                         <Link to={`/post-page/${post.id}`}><img src={post.img} alt={post.title}
-                                                               className="w-12 h-12 rounded-full border-2 transition-colors duration-200 ease-in hover:border-indigo-600"/></Link>
+                                                               className="w-12 h-12 rounded-full border-2"/></Link>
                         <section className="ml-3">
                             <Link to={`/post-page/${post.id}`}
-                                  className="whitespace-nowrap text-gray-700 transition-colors duration-200 ease-in hover:text-indigo-800">
+                                  className="whitespace-nowrap text-gray-700 ">
                                 {post.title.substring(0, maxLength) + (post.title.length > maxLength ? '...' : '')}
                             </Link>
                             <p className="text-gray-400 text-sm font-light">{post.date.day + ' ' + post.date.month + ' ' + post.date.year}</p>

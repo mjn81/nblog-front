@@ -35,20 +35,4 @@ export const socialData = [
         color:'bg-sky-300 text-sky-300',
         icon_id:5,
     },
-    {
-        id:3,
-        title:'facebook',
-        text:'follow',
-        link:'https://facebook.com',
-        color:'bg-blue-600 text-blue-600',
-        icon_id:4,
-    },
-    {
-        id:4,
-        title:'telegram',
-        text:'follow',
-        link:'https://telegram.com',
-        color:'bg-rose-500 text-rose-500',
-        icon_id:2,
-    },
 ];
