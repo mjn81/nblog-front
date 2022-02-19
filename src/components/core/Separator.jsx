@@ -10,10 +10,13 @@ export const TitleSeparator = ({title, icon = null, isSmall = false}) => {
     );
 };
 
-export const InfoSeparator = ({title}) => {
+export const InfoSeparator = ({title , children}) => {
     return (
-        <section className="bg-indigo-50 text-indigo-900 text-lg my-4 py-2 px-4 border-l-4 border-indigo-600">
+        <section className="bg-indigo-50 text-indigo-900 text-lg my-4 py-2 px-4 border-l-4 border-indigo-600 flex">
             {title}
+            {children && <div className="px-3">
+                {children}
+            </div>}
         </section>
     );
 }
