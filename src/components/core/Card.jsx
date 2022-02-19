@@ -1,4 +1,4 @@
-import {TitleSeparator} from "./Seprator";
+import {TitleSeparator} from "./Separator";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEllipsis} from "@fortawesome/free-solid-svg-icons";
 
@@ -16,4 +16,12 @@ export const SideCard = ({title, children}) => {
         </section>
     );
 };
+
+export const SimpleCard = ({children}) => {
+    return (
+       <section className="bg-white shadow-sm rounded-md mb-4 p-6">
+           {children}
+       </section>
+    );
+}
 

@@ -4,57 +4,106 @@
 
 
 .scoroll-animation {
-  animation: scanim 15s linear infinite;
+    animation: scanim 15s linear infinite;
 }
 
-.scoroll-animation:hover{
-  animation-play-state: paused;
+.scoroll-animation:hover {
+    animation-play-state: paused;
 }
 
 @keyframes scanim {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-@keyframes menu-moveup {
-	from {
-		opacity: 0;
-		transform: translateX(-50%) rotatex(90deg);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(-50%) rotatex(0);
-	}
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
-.main-menu>li>ul{
-    display: none;
-  transform-origin: top;
-  animation: menu-moveup 500ms  both;
-  box-shadow: 0 0 10px #00000014 !important;
-  -webkit-box-shadow: 0 0 10px #0000000e !important;
-  -moz-box-shadow: 0 0 10px #00000014 !important;
+@keyframes menu-moveup {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) rotatex(90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) rotatex(0);
+    }
 }
-.main-menu>li:hover>ul{
+
+.main-menu > li > ul {
+    display: none;
+    transform-origin: top;
+    animation: menu-moveup 500ms both;
+    box-shadow: 0 0 10px #00000014 !important;
+    -webkit-box-shadow: 0 0 10px #0000000e !important;
+    -moz-box-shadow: 0 0 10px #00000014 !important;
+}
+
+.main-menu > li:hover > ul {
     display: block;
 
 }
 
-.w-fix-1120{
+.w-fix-1120 {
     width: 1120px;
 }
 
-.h-500{
+.h-500 {
     height: 500px;
 }
 
-.p-title:hover img{
+.p-title:hover img {
     transform: scale(1.2);
 }
 
 .side-list-hover > li:hover {
     @apply text-gray-700;
+}
+
+/* text handler */
+
+.main-article h2, h3, h4, h5, h6, p {
+    @apply text-gray-800;
+}
+
+
+.main-article h2 {
+    @apply text-4xl;
+}
+
+.main-article h3 {
+    @apply text-3xl;
+}
+
+.main-article h4 {
+    @apply text-2xl;
+}
+
+.main-article h5 {
+    @apply text-xl;
+}
+
+.main-article h6 {
+    @apply text-lg;
+}
+
+.main-article p {
+    @apply font-light;
+}
+
+.main-article ul {
+    @apply list-disc;
+}
+
+.main-article ol {
+    @apply list-decimal;
+}
+
+.main-article blockquote {
+    @apply bg-indigo-50 text-gray-600 py-5 px-4 border-l-4 border-indigo-600;
+}
+
+.content a {
+    @apply px-2 rounded-md py-1.5 text-white border-none outline-none bg-indigo-700;
 }

@@ -43,7 +43,7 @@ const LatestNews = () => {
 
     return (
         <SideCard title="Latest news">
-            <ul>
+            <ul className="pb-2">
                 {p.map((post, index) => (
                     <li key={post.id}
                         className={"flex py-2.5 border-dashed border-gray-200 mx-2" + (index < p.length - 1 ? ' border-b-2' : '')}>

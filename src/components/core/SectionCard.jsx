@@ -1,5 +1,5 @@
 import React from 'react';
-import {TitleSeparator} from "./Seprator";
+import {TitleSeparator} from "./Separator";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 
 export const SectionCard = ({title , children}) => {

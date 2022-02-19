@@ -45,10 +45,10 @@ export const socialData = [
     },
     {
         id:4,
-        title:'youtube',
+        title:'telegram',
         text:'follow',
-        link:'https://youtube.com',
+        link:'https://telegram.com',
         color:'bg-rose-500 text-rose-500',
-        icon_id:6,
+        icon_id:2,
     },
 ];

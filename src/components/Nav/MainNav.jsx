@@ -52,7 +52,7 @@ const MainNav = () => {
                         <li key={id}
                             className={'relative px-5 py-2 border-gray-50 transition-colors duration-50 ease-in hover:text-indigo-700  '
                             + (index === 0 ? '':'border-l-2')}>
-                            <Link to={title} className="py-1 flex items-center ">
+                            <Link to={title} className="py-1 flex items-center">
                                 {title}
                                 {subCat ?
                                     <FontAwesomeIcon className="ml-2 text-xs" icon={faChevronDown} />

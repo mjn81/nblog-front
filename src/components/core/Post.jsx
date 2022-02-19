@@ -24,7 +24,7 @@ export const Post = ({id, title, badges, img, description, date}) => {
                         {title}
                     </Badge>
                 ))}</section>
-                <Link to={`/post-page/${id}`} className="inline-block"><h1 className="my-2 text-gray-800 text-2xl">{title}</h1></Link>
+                <Link to={`/post-page/${id}`} className="inline-block"><h1 className="my-2 text-gray-800 text-2xl hover:text-indigo-700">{title}</h1></Link>
                 <p className="font-light text-gray-700">{shortStr}...</p>
             </section>
         </article>

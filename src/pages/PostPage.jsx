@@ -1,11 +1,79 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
+import ContentLayout from "../layouts/ContentLayout";
+import {Badge, SimpleCard} from "../components/core";
+import {faCalendar, faComments, faUser} from "@fortawesome/free-regular-svg-icons";
+import {useEffect} from "react";
+import CommentSection from "../components/Comment/Comment";
 
 const PostPage = () => {
     const {id} = useParams();
-    return (
-        <div>
+    const p = {
+        id: 1,
+        title: 'Lorem ipsum dolor si',
+        categories: [
+            {title: 'newp', color: ' bg-rose-400'},
+            {title: 'categories', color: ' bg-lime-600'},
+            {title: 'mjn', color: ' bg-pink-600'},
+            {title: 'author', color: ' bg-blue-400'},
+        ],
+        author: 'mjn',
+        description: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, expedita.</p>',
+        img: 'https://via.placeholder.com/1920x1080',
+        date: {
+            day: '13',
+            month: 'july',
+            year: '2020'
+        },
+    }
 
+    useEffect(()=>{
+        const content = document.querySelector('#content');
+        content.innerHTML  = p.description;
+    } , [p]);
+    const comments = 5;
+
+    return (
+        <div className="my-8">
+            <ContentLayout>
+                <SimpleCard>
+                    <article className="main-article p-4">
+                        <header className="flex flex-wrap items-center justify-between">
+                            <h1 className=" text-4xl text-black font-medium mb-2">{p.title}</h1>
+                            <section className=" grid grid-flow-col h-fit w-fit gap-1.5">
+                                {p.categories.map((cat, index) => (
+                                    <Badge key={index} bgColor={cat.color}>{cat.title}</Badge>
+                                ))}
+                            </section>
+                        </header>
+                        <section className="rounded-lg overflow-hidden mb-5 mt-2">
+                            <img src={p.img} alt={p.img} className="object-cover"/>
+
+                        </section>
+                        <section className="flex mb-3 text-gray-700">
+                            <span>
+                                <FontAwesomeIcon icon={faUser} className="mr-1.5"/>written by :
+                                <Link to="" className="text-indigo-700">{p.author}
+                                </Link>
+                            </span>
+                            <span className="ml-5"><FontAwesomeIcon icon={faCalendar}
+                                                                    className="mr-1.5"/>
+                                published at : {p.date.day + ' ' + p.date.month + ' ' + p.date.year}
+                            </span>
+                            <span className="ml-5"><FontAwesomeIcon icon={faComments} className="mr-1.5"/>
+                                comments : {comments}
+                            </span>
+                        </section>
+                        <section id="content" className="content">
+
+                        </section>
+                    </article>
+                </SimpleCard>
+                <CommentSection />
+            </ContentLayout>
         </div>
+
     );
 };
 
