@@ -14,7 +14,7 @@ export const Post = ({id, title, badges, img, description, date}) => {
                 <p>{date.month}</p>
             </div>
             <section className="col-span-2 overflow-hidden rounded-lg">
-                <Link to={`post-page/${id}`}>
+                <Link to={`/post-page/${id}`}>
                     <img src={img} alt={title} className="w-full h-full object-cover origin-center transition-transform duration-500 ease-out"/>
                 </Link>
             </section>
@@ -24,7 +24,7 @@ export const Post = ({id, title, badges, img, description, date}) => {
                         {title}
                     </Badge>
                 ))}</section>
-                <Link to={`post-page/${id}`} className="inline-block"><h1 className="my-2 text-gray-800 text-2xl">{title}</h1></Link>
+                <Link to={`/post-page/${id}`} className="inline-block"><h1 className="my-2 text-gray-800 text-2xl">{title}</h1></Link>
                 <p className="font-light text-gray-700">{shortStr}...</p>
             </section>
         </article>
