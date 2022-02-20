@@ -5,7 +5,7 @@ import SubMenItem from "./SubMenItem";
 import { OutlineButton, SquareButton } from "../core";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import {useState} from "react";
-import {Search} from "./Portals";
+import {Menu, Search} from "./Portals";
 const MainNav = () => {
     const categories = [
         {
@@ -44,16 +44,21 @@ const MainNav = () => {
         },
     ];
     const [visible , setVisible] = useState(false);
+    const [menuV , setMenuV] = useState(false);
+
+
     const onSearchClick = () => {
         setVisible(true);
     }
-
+    const onMenuClick = () => {
+        setMenuV(true);
+    }
     return ( 
         <div className="flex items-center justify-between px-8 py-3">
             <h1 className="uppercase text-4xl w-1/4 font-extralight">
                 <Link to="/home"><span className="text-indigo-600">nb</span>log</Link>
             </h1>
-            <nav className="py-4 w-1/2 text-gray-800 ">
+            <nav className="py-4 w-1/2 text-gray-800 hidden lg:block">
                 <ul className="flex w-full text-lg justify-center main-menu">
                     {categories.map(({id , title , subCat} , index) => (
                         <li key={id}
@@ -84,11 +89,12 @@ const MainNav = () => {
                 <SquareButton adclass="mr-3" onClick={onSearchClick}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </SquareButton>
-                <SquareButton>
+                <SquareButton onClick={onMenuClick}>
                     <FontAwesomeIcon icon={faBars} />
                 </SquareButton>
             </section>
             <Search visible={visible} setVisible={setVisible} />
+            <Menu visible={menuV} setVisible={setMenuV} category={categories} />
         </div>
      );
 }
