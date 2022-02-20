@@ -89,16 +89,18 @@ const MainNav = () => {
                 </OutlineButton>
                 <SquareButton adclass="mr-3" onClick={onSearchClick}>
                     <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    <Search visible={visible} setVisible={setVisible}/>
                 </SquareButton>
                 <SquareButton adclass="lg:hidden" onClick={onMenuClick}>
                     <FontAwesomeIcon icon={faBars}/>
+                    <Menu visible={menuV} setVisible={setMenuV} category={categories}/>
                 </SquareButton>
                 <SquareButton adclass="ml-3 lg:ml-0">
                     <FontAwesomeIcon icon={faUser}/>
                 </SquareButton>
             </section>
-            <Search visible={visible} setVisible={setVisible}/>
-            <Menu visible={menuV} setVisible={setMenuV} category={categories}/>
+
+
         </div>
     );
 }
