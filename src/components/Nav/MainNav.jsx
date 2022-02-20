@@ -1,11 +1,13 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faChevronDown, faMagnifyingGlass, faUser} from "@fortawesome/free-solid-svg-icons"
+import {faMoon} from "@fortawesome/free-regular-svg-icons";
+
+import {useContext, useState} from "react";
 import SubMenItem from "./SubMenItem";
 import {OutlineButton, SquareButton} from "../core";
-import {faMoon} from "@fortawesome/free-regular-svg-icons";
-import {useState} from "react";
 import {Menu, Search} from "./Portals";
+import userContext from "../../context/UserContext";
 
 const MainNav = () => {
     const categories = [
@@ -46,7 +48,15 @@ const MainNav = () => {
     ];
     const [visible, setVisible] = useState(false);
     const [menuV, setMenuV] = useState(false);
-
+    const {state} = useContext(userContext);
+    const navigator = useNavigate();
+    const onUserClickHandler = () => {
+        if (state.logState && state.token) {
+            navigator('/user/dashboard', {replace: true});
+        } else {
+            navigator('/user/login', {replace: true});
+        }
+    }
 
     const onSearchClick = () => {
         setVisible(true);
@@ -83,7 +93,7 @@ const MainNav = () => {
                     ))}
                 </ul>
             </nav>
-        <section className="w-1/4 flex items-center justify-end">
+            <section className="w-1/4 flex items-center justify-end">
                 <OutlineButton adclass="text-2xl mr-3 text-indigo-600">
                     <FontAwesomeIcon icon={faMoon}/>
                 </OutlineButton>
@@ -95,7 +105,7 @@ const MainNav = () => {
                     <FontAwesomeIcon icon={faBars}/>
                     <Menu visible={menuV} setVisible={setMenuV} category={categories}/>
                 </SquareButton>
-                <SquareButton adclass="ml-3 lg:ml-0">
+                <SquareButton adclass="ml-3 lg:ml-0" onClick={onUserClickHandler}>
                     <FontAwesomeIcon icon={faUser}/>
                 </SquareButton>
             </section>
