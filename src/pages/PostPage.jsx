@@ -27,11 +27,6 @@ const PostPage = () => {
             year: '2020'
         },
     }
-
-    useEffect(() => {
-        const content = document.querySelector('#content');
-        content.innerHTML = p.description;
-    }, [p]);
     const comments = [{
         id: 1,
         title: 'hello world',
@@ -68,16 +63,22 @@ const PostPage = () => {
             avatar: 'https://i.pravatar.cc/300',
         },
     },];
+
+    useEffect(() => {
+        const content = document.querySelector('#content');
+        content.innerHTML = p.description;
+    }, [p]);
+
     return (
         <div className="my-8">
             <ContentLayout>
                 <SimpleCard>
-                    <article className="main-article p-4">
+                    <article className="main-article sm:p-4">
                         <header className="flex flex-wrap items-center justify-between">
-                            <h1 className=" text-4xl text-black font-medium mb-2">{p.title}</h1>
-                            <section className=" grid grid-flow-col h-fit w-fit gap-1.5">
+                            <h1 className="text-2xl sm:text-3xl lg:text-4xl text-black font-medium mb-2">{p.title}</h1>
+                            <section className="flex flex-wrap h-fit w-fit">
                                 {p.categories.map((cat, index) => (
-                                    <Badge key={index} bgColor={cat.color}>{cat.title}</Badge>
+                                    <Badge key={index} adClass="mr-1 mb-1.5 lg:mb-0" bgColor={cat.color}>{cat.title}</Badge>
                                 ))}
                             </section>
                         </header>
@@ -85,17 +86,17 @@ const PostPage = () => {
                             <img src={p.img} alt={p.title} className="object-cover"/>
 
                         </section>
-                        <section className="flex mb-3 text-gray-700">
+                        <section className="flex flex-col lg:flex-row mb-3 text-gray-700">
                             <span>
                                 <FontAwesomeIcon icon={faUser} className="mr-1.5"/>written by :
                                 <Link to="" className="text-indigo-700">{p.author}
                                 </Link>
                             </span>
-                            <span className="ml-5"><FontAwesomeIcon icon={faCalendar}
+                            <span className="lg:ml-5"><FontAwesomeIcon icon={faCalendar}
                                                                     className="mr-1.5"/>
                                 published at : {p.date.day + ' ' + p.date.month + ' ' + p.date.year}
                             </span>
-                            <span className="ml-5"><FontAwesomeIcon icon={faComments} className="mr-1.5"/>
+                            <span className="lg:ml-5"><FontAwesomeIcon icon={faComments} className="mr-1.5"/>
                                 comments : {comments.length}
                             </span>
                         </section>

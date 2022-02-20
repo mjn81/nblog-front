@@ -80,10 +80,10 @@ const Slider = () => {
                 <img key={index} className={"w-full h-full object-cover absolute" + (index === 0 ? ' active' : '')}
                      src={img} alt={title}/>))}
         </div>
-        <OutlineButton onClick={moveToPrev} adclass='absolute z-10 top-1/2 left-5 -translate-y-1/2 py-3 px-2'>
+        <OutlineButton onClick={moveToPrev} adclass='absolute z-10 top-1/2 left-5 -translate-y-1/2 py-3 lg:px-2'>
             <FontAwesomeIcon icon={faChevronLeft} className="text-4xl"/>
         </OutlineButton>
-        <OutlineButton onClick={moveToNext} adclass='absolute z-10 top-1/2 right-5 -translate-y-1/2 py-3 px-2'>
+        <OutlineButton onClick={moveToNext} adclass='absolute z-10 top-1/2 right-5 -translate-y-1/2 py-3 lg:px-2'>
             <FontAwesomeIcon icon={faChevronRight} className="text-4xl"/>
         </OutlineButton>
 

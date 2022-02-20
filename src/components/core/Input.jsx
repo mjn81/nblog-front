@@ -18,8 +18,8 @@ export const PortalInput = ({text, name, ref}) => {
 
 export const TextArea = ({text, ref, id, name}) => {
     return (
-        <textarea name={name} id={id} ref={ref} cols="30" rows="10" placeholder={text}
-                  className="border-2 border-gray-300 border-dashed outline-offset-2
+        <textarea name={name} id={id} ref={ref} rows="10" placeholder={text}
+                  className="w-full block border-2 border-gray-300 border-dashed outline-offset-2
                   outline-8 text-gray-700 rounded-xl p-6 outline-indigo-200 resize-none">
 
         </textarea>
