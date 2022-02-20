@@ -1,12 +1,18 @@
-import {useContext} from "react";
-import userContext from "../../context/UserContext";
+import {SideBar , TopNav , MainContent} from "../../components/admin";
+import {Outlet} from "react-router-dom";
 
 const DashboardPage = () => {
-    const {state} = useContext(userContext);
+
 
     return (
-        <div>
-
+        <div className="h-screen w-full flex items-start">
+            <SideBar />
+            <section className="w-full">
+                <TopNav />
+                <MainContent>
+                    <Outlet />
+                </MainContent>
+            </section>
         </div>
     );
 };

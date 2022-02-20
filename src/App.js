@@ -9,6 +9,9 @@ import {Provider} from "./context/UserContext";
 import AdminLayout from "./layouts/AdminLayout";
 import LoginPage from "./pages/admin/LoginPage";
 import DashboardPage from "./pages/admin/DashboardPage";
+import AddPost from "./pages/admin/AddPostPage";
+import PostList from "./pages/admin/PostList";
+import Info from "./pages/admin/Info";
 
 
 function App() {
@@ -25,7 +28,11 @@ function App() {
 
                     <Route path="/user" element={<AdminLayout/>}>
                         <Route path="login" element={<LoginPage/>}/>
-                        <Route path="dashboard" element={<DashboardPage/>}/>
+                        <Route path="dashboard" element={<DashboardPage />}>
+                            <Route path="addPost" element={<AddPost />} />
+                            <Route path="postList" element={<PostList />} />
+                            <Route path="info" element={<Info />} />
+                        </Route>
                     </Route>
                 </Routes>
             </Router>

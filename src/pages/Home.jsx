@@ -2,6 +2,8 @@ import ContentLayout from "../layouts/ContentLayout";
 import Slider from "../components/Slider/Slider";
 import {SectionCard} from "../components/core";
 import {Post} from "../components/core/Post";
+import Pagination from "../components/core/Pagination";
+import React, {useState} from "react";
 
 const Home = () => {
     const p = [
@@ -22,6 +24,10 @@ const Home = () => {
             },
         }
     ]
+    const pnum = 3;
+    const plimit = 12;
+    const [limit , setLimit] = useState({start:0 , end:plimit});
+    const active = limit.start/plimit;
     return (
         <>
             <Slider/>
@@ -32,6 +38,9 @@ const Home = () => {
                               date={date} badges={categories}/>
                     ))}
                 </SectionCard>
+                <div className="w-full flex items-center justify-center py-6">
+                    <Pagination pageNumber={pnum} active={active} plimit={plimit} setLimit={setLimit} />
+                </div>
             </ContentLayout>
         </>
     );

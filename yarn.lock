@@ -2465,6 +2465,11 @@ atob@^2.1.2:
   resolved "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+autobind-decorator@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/autobind-decorator/-/autobind-decorator-2.4.0.tgz#ea9e1c98708cf3b5b356f7cf9f10f265ff18239c"
+  integrity sha512-OGYhWUO72V6DafbF8PM8rm3EPbfuyMZcJhtm5/n26IDwO18pohE4eNazLoCGhPiXOCD0gEGmrbU3849QvM8bbw==
+
 autoprefixer@^10.4.2:
   version "10.4.2"
   resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.2.tgz"
@@ -3087,7 +3092,7 @@ core-js-pure@^3.20.2, core-js-pure@^3.8.1:
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.21.1.tgz"
   integrity sha512-12VZfFIu+wyVbBebyHmRTuEE/tZrB4tJToWcwAMcsp3h4+sHR+fMJWbKpYiCRWlhFBq+KNyO8rIV9rTkeVmznQ==
 
-core-js@^3.19.2:
+core-js@^3.19.2, core-js@^3.21.0:
   version "3.21.1"
   resolved "https://registry.npmjs.org/core-js/-/core-js-3.21.1.tgz"
   integrity sha512-FRq5b/VMrWlrmCzwRrpDYNxyHP9BcAZC+xHJaqTgIE5091ZV1NTmyh0sGOg5XqpnHvR0svdy0sv1gWA1zmhxig==
@@ -5474,6 +5479,21 @@ jest@^27.4.3:
     "@jest/core" "^27.5.1"
     import-local "^3.0.2"
     jest-cli "^27.5.1"
+
+jodit-react@^1.1.25:
+  version "1.1.25"
+  resolved "https://registry.yarnpkg.com/jodit-react/-/jodit-react-1.1.25.tgz#6a9d68fc993f89cfac5789f2731af78a8af83aeb"
+  integrity sha512-uHcs3mKe7K+sjbjCv5j1onS5qL4pq+X2ugNVehb5gIOiDgE9V5DSXwRrouACI8H5SgIfjONrXBdjjyYTY9LpBg==
+  dependencies:
+    jodit "^3.9.4"
+
+jodit@^3.9.4:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/jodit/-/jodit-3.14.1.tgz#463f850f9a821d2da9a978935422eb6465dc0faf"
+  integrity sha512-QpV/flGT8ZwpjTeiZjYgx/8c1Ck1QF6iELUA3PtEftd6l3ASXo/GKsqbO4vzPBiw4lG21ozwiw/Qh6Crupgr2A==
+  dependencies:
+    autobind-decorator "^2.4.0"
+    core-js "^3.21.0"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
