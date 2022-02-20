@@ -67,14 +67,13 @@ const Slider = () => {
 
     useEffect(() => {
         carouselFunction();
-        window.addEventListener('resize',carouselFunction );
         const clr = setTimeout(autoMovement, 10000);
         return () => {
             clearTimeout(clr);
         }
     });
 
-    return (<section className=" my-8 overflow-hidden rounded-xl relative text-white h-500">
+    return (<section className=" my-8 overflow-hidden rounded-xl relative text-white h-500" >
         <div className="main-slider relative transition-transform duration-500 ease-out h-full">
             {images.map(({img, title}, index) => (
                 <img key={index} className={"w-full h-full object-cover absolute" + (index === 0 ? ' active' : '')}
