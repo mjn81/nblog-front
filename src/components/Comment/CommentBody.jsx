@@ -1,5 +1,5 @@
 
-import {FullButton, Label, MdInput, SquareButton, TextArea} from "../core";
+import {FullButton, Label, MdInput, Row, SquareButton, TextArea} from "../core";
 
 export const CommentItem = ({title, text, author , setStatus  ,replies=null}) => {
 
@@ -47,14 +47,14 @@ export const CommentForm = () => {
     //todo: if not login disable commenting -> redux
     return (
         <form >
-            <div className="mb-3">
+            <Row>
                 <Label src="cmt-title" text="title"/>
                 <MdInput type="text" text="title..." id="cmt-title"/>
-            </div>
-            <div className="mb-3">
+            </Row>
+            <Row>
                 <Label src="cmt-text" text="comment"/>
                 <TextArea text="enter your comment..." id="cmt-text"/>
-            </div>
+            </Row>
             <div className="px-8 pt-4 pb-2">
                 <FullButton adClass="shadow-md">
                     Submit

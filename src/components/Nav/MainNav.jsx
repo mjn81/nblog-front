@@ -46,7 +46,7 @@ const MainNav = () => {
             id: 4,
         },
     ];
-    const [visible, setVisible] = useState(false);
+    const [searchV, setSV] = useState(false);
     const [menuV, setMenuV] = useState(false);
     const {state} = useContext(userContext);
     const navigator = useNavigate();
@@ -59,7 +59,7 @@ const MainNav = () => {
     }
 
     const onSearchClick = () => {
-        setVisible(true);
+        setSV(true);
     }
     const onMenuClick = () => {
         setMenuV(true);
@@ -99,7 +99,7 @@ const MainNav = () => {
                 </OutlineButton>
                 <SquareButton adclass="mr-3" onClick={onSearchClick}>
                     <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                    <Search visible={visible} setVisible={setVisible}/>
+                    <Search visible={searchV} setVisible={setSV}/>
                 </SquareButton>
                 <SquareButton adclass="lg:hidden" onClick={onMenuClick}>
                     <FontAwesomeIcon icon={faBars}/>

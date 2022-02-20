@@ -20,3 +20,11 @@ export const InfoSeparator = ({title , children}) => {
         </section>
     );
 }
+
+export const Row = ({children})=> {
+    return (
+        <div className="py-2 space-y-2 ">
+            {children}
+        </div>
+    );
+}
