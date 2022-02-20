@@ -15,7 +15,7 @@ export const icons = [
     faDribbble,
     faFacebook,
     faSkype,
-    faYoutube
+    faYoutube,
 ];
 
 export const socialData = [

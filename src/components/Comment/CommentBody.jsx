@@ -1,25 +1,44 @@
 
 import {FullButton, Label, MdInput, SquareButton, TextArea} from "../core";
 
-export const CommentItem = ({title, text, author , setStatus }) => {
+export const CommentItem = ({title, text, author , setStatus  ,replies=null}) => {
 
     return (
-        <section className="flex bg-gray-100 items-start p-6 rounded">
-            <div className="text-center">
-                <img src={author.avatar} className="rounded-full overflow-hidden w-28 object-cover"
-                     alt={`https://ui-avatars.com/api/?name=${author.username}`}/>
-                <p className="text-gray-500 mt-2">{author.username}</p>
-            </div>
-            <div className="ml-6">
-                <h4 className="mb-2 text-2xl font-bold">{title} :</h4>
-                <p className="font-light">
-                    {text}
-                </p>
-                <SquareButton onClick={() => setStatus({username:author.username , st:true})}  bgColor=' bg-gray-300' adclass="text-gray-700 mt-6 text-sm">
-                    response
-                </SquareButton>
-            </div>
-
+        <section className="bg-gray-100 p-6 rounded">
+            <section className="flex items-start">
+                <div className="text-center">
+                    <img src={author.avatar} className="rounded-full overflow-hidden w-28 object-cover"
+                         alt={`https://ui-avatars.com/api/?name=${author.username}`}/>
+                    <p className="text-gray-500 mt-2">{author.username}</p>
+                </div>
+                <div className="ml-6">
+                    <h4 className="mb-2 text-2xl font-bold">{title} :</h4>
+                    <p className="font-light">
+                        {text}
+                    </p>
+                    <SquareButton onClick={() => setStatus({username:author.username , st:true})}  bgColor=' bg-gray-300' adclass="text-gray-700 mt-6 text-sm">
+                        reply
+                    </SquareButton>
+                </div>
+            </section>
+            {replies && <h4 className="my-4 italic text-xl text-gray-500 font-bold">replies : </h4>}
+            {replies && replies.map((rep) => (
+                <section key={rep.id} className="bg-gray-200 my-3 p-4 rounded">
+                    <section className="flex items-start">
+                        <div className="text-center">
+                            <img src={rep.user.avatar} className="rounded-full overflow-hidden w-28 object-cover"
+                                 alt={`https://ui-avatars.com/api/?name=${rep.user.username}`}/>
+                            <p className="text-slate-500 mt-2">{rep.user.username}</p>
+                        </div>
+                        <div className="ml-6">
+                            <h4 className="mb-2 text-xl font-bold text-slate-500">{rep.title} : </h4>
+                            <p className="font-light text-slate-600">
+                                {rep.text}
+                            </p>
+                        </div>
+                    </section>
+                </section>
+            ))}
         </section>
     );
 };

@@ -28,12 +28,46 @@ const PostPage = () => {
         },
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const content = document.querySelector('#content');
-        content.innerHTML  = p.description;
-    } , [p]);
-    const comments = 5;
-
+        content.innerHTML = p.description;
+    }, [p]);
+    const comments = [{
+        id: 1,
+        title: 'hello world',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorum natus nihil. Beatae ipsa itaque, libero perspiciatis praesentium ut velit?',
+        user: {
+            username: 'mjn',
+            avatar: 'https://i.pravatar.cc/300',
+        },
+        replies: [
+            {
+                id: 1,
+                title: 'hello world',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorum natus nihil. Beatae ipsa itaque, libero perspiciatis praesentium ut velit?',
+                user: {
+                    username: 'mjn2',
+                    avatar: 'https://i.pravatar.cc/300',
+                },
+            },{
+                id: 2,
+                title: 'hello world',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorum natus nihil. Beatae ipsa itaque, libero perspiciatis praesentium ut velit?',
+                user: {
+                    username: 'mjn2',
+                    avatar: 'https://i.pravatar.cc/300',
+                },
+            }
+        ],
+    }, {
+        id: 2,
+        title: 'hello world',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorum natus nihil. Beatae ipsa itaque, libero perspiciatis praesentium ut velit?',
+        user: {
+            username: 'mjn',
+            avatar: 'https://i.pravatar.cc/300',
+        },
+    },];
     return (
         <div className="my-8">
             <ContentLayout>
@@ -48,7 +82,7 @@ const PostPage = () => {
                             </section>
                         </header>
                         <section className="rounded-lg overflow-hidden mb-5 mt-2">
-                            <img src={p.img} alt={p.img} className="object-cover"/>
+                            <img src={p.img} alt={p.title} className="object-cover"/>
 
                         </section>
                         <section className="flex mb-3 text-gray-700">
@@ -62,7 +96,7 @@ const PostPage = () => {
                                 published at : {p.date.day + ' ' + p.date.month + ' ' + p.date.year}
                             </span>
                             <span className="ml-5"><FontAwesomeIcon icon={faComments} className="mr-1.5"/>
-                                comments : {comments}
+                                comments : {comments.length}
                             </span>
                         </section>
                         <section id="content" className="content">
@@ -70,7 +104,7 @@ const PostPage = () => {
                         </section>
                     </article>
                 </SimpleCard>
-                <CommentSection />
+                <CommentSection comments={comments}/>
             </ContentLayout>
         </div>
 
