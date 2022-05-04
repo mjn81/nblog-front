@@ -8,7 +8,7 @@ const initialState = {
     logState: false,
 }
 
-const userContext = createContext(1);
+const userContext = createContext(initialState);
 
 
 export const Provider = ({children, value}) => {

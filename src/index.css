@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 
-.scoroll-animation {
-    animation: scanim 15s linear infinite;
+.scroll-animation {
+    animation: scanim 11s linear infinite;
 }
 
-.scoroll-animation:hover {
+.scroll-animation:hover {
     animation-play-state: paused;
 }
 
 @keyframes scanim {
     0% {
-        transform: translateX(100%);
+        left: 105%;
     }
     100% {
-        transform: translateX(-100%);
+        left: -10%;
     }
 }
 

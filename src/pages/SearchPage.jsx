@@ -4,10 +4,12 @@ import {Post} from "../components/core/Post";
 import {useParams} from "react-router-dom";
 import React, {useState} from "react";
 import Pagination from "../components/core/Pagination";
+import { useFetchSearched } from "../hooks";
 
-const ContentPage = () => {
-    const { title } = useParams();
-    const data = null;
+const SearchPage = () => {
+    const { key } = useParams();
+    const { data } = useFetchSearched(key);
+    console.log(data);
     const pnum = 3;
     const plimit = 12;
     const [limit , setLimit] = useState({start:0 , end:plimit});
@@ -15,10 +17,10 @@ const ContentPage = () => {
     return (
         <section className="mt-8">
             <ContentLayout>
-                <SectionCard title={title}>
-                    {data && data.map(({id, title, img, description, date, categories}) => (
-                        <Post key={id} id={id} title={title} img={img} description={description}
-                              date={date} badges={categories}/>
+                <SectionCard title={`searched : ${key}`}>
+                    {data && data.results.map(({id, title, image, description, created_at, categories}) => (
+                        <Post key={id} id={id} title={title} img={image} description={description}
+                              date={created_at} badges={categories}/>
                     ))}
                 </SectionCard>
                 <div className="w-full flex items-center justify-center py-6">
@@ -29,4 +31,4 @@ const ContentPage = () => {
     );
 }
 
-export default ContentPage;
+export default SearchPage;
