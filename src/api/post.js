@@ -13,3 +13,5 @@ export const getPostPaginate = (id) => get(`/blog/posts/?page=${id}`);
 export const postComment = (data) => post(`/blog/comments/`, data);
 
 export const getUserPost = () => get('/blog/user-posts');
+
+export const addPost = (data) => post('/blog/user-posts/', data);

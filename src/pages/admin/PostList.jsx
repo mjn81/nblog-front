@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {SimpleCard} from "../../components/core";
 import Table from "../../components/core/Table";
 import { useFetchUserPost } from '../../hooks';
@@ -6,7 +6,6 @@ import { useFetchUserPost } from '../../hooks';
 
 const PostList = () => {
     const { data } = useFetchUserPost();
-    console.log(data);
     // const plimit = 12;
     // const [limit , setLimit] = useState({start:0 , end:plimit});
     // const active = limit.start/plimit;
