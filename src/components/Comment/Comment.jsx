@@ -1,11 +1,9 @@
 import { InfoSeparator, OutlineButton, SimpleCard } from "../core";
 import { CommentItem, CommentForm } from "./CommentBody";
-import { useFetchComments } from "../../hooks";
 import { useState } from "react";
 
-const CommentSection = ({ comments }) => {
-	// TODO : response answer implement
-	const [isRes, setIsRes] = useState({ username: "", st: false });
+const CommentSection = ({ comments , postId }) => {
+	const [isRes, setIsRes] = useState({ username: "" , userid : null , st: false });
 	return (
 		<SimpleCard>
 			{!!comments.length && (
@@ -28,14 +26,14 @@ const CommentSection = ({ comments }) => {
 			>
 				{isRes.st && (
 					<OutlineButton
-						onClick={() => setIsRes({ username: "", st: false })}
+						onClick={() => setIsRes({ username: "" , userid: null , st: false })}
 						adclass=" text-indigo-400"
 					>
 						cancel
 					</OutlineButton>
 				)}
 			</InfoSeparator>
-			<CommentForm />
+			<CommentForm postId={postId} isRes={isRes} setRes={setIsRes} />
 		</SimpleCard>
 	);
 };

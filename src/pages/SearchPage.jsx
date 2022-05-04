@@ -9,7 +9,6 @@ import { useFetchSearched } from "../hooks";
 const SearchPage = () => {
     const { key } = useParams();
     const { data } = useFetchSearched(key);
-    console.log(data);
     const pnum = 3;
     const plimit = 12;
     const [limit , setLimit] = useState({start:0 , end:plimit});

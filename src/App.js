@@ -17,6 +17,7 @@ import PostList from "./pages/admin/PostList";
 import Info from "./pages/admin/Info";
 import NotFound from "./pages/404";
 import SearchPage from "./pages/SearchPage";
+import RegisterPage from "./pages/admin/RegisterPage";
 
 function App() {
 	return (
@@ -33,6 +34,7 @@ function App() {
 
 					<Route path="/user" element={<AdminLayout />}>
 						<Route path="login" element={<LoginPage />} />
+						<Route path="register" element={<RegisterPage />} />
 						<Route path="dashboard" element={<DashboardPage />}>
 							<Route path="addPost" element={<AddPost />} />
 							<Route path="postList" element={<PostList />} />

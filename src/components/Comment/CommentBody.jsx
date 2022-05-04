@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
 	FullButton,
 	Label,
@@ -6,10 +7,12 @@ import {
 	SquareButton,
 	TextArea,
 } from "../core";
-import { useFetchComments } from "../../hooks";
+import { useFetchComments, useFetchUser } from "../../hooks";
+import { postComment } from "../../api";
 
 export const CommentItem = ({ id, title, text, setStatus }) => {
 	const { data } = useFetchComments(id);
+	// TODO: fix comment setStatus bug -- problem from backend
 	return (
 		<section className="bg-gray-100 p-6 rounded">
 			{data && (
@@ -17,7 +20,7 @@ export const CommentItem = ({ id, title, text, setStatus }) => {
 					<div className="text-center">
 						<img
 							src={`https://ui-avatars.com/api/?name=${data.user.username}`}
-							className="rounded-full overflow-hidden w-60 object-cover"
+							className="rounded-full overflow-hidden max-w-2xl object-cover"
 							alt={data.user.username}
 						/>
 						<p className="text-gray-500 mt-2">{data.user.username}</p>
@@ -27,7 +30,11 @@ export const CommentItem = ({ id, title, text, setStatus }) => {
 						<p className="font-light">{text}</p>
 						<SquareButton
 							onClick={() =>
-								setStatus({ username: data.user.username, st: true })
+								setStatus({
+									username: data.user.username,
+									userid: data.user.id,
+									st: true,
+								})
 							}
 							bgColor=" bg-gray-300"
 							adclass="text-gray-700 mt-6 text-sm"
@@ -50,7 +57,7 @@ export const CommentItem = ({ id, title, text, setStatus }) => {
 							<div className="text-center">
 								<img
 									src={`https://ui-avatars.com/api/?name=${rep.user.username}`}
-									className="rounded-full overflow-hidden w-28 object-cover"
+									className="rounded-full overflow-hidden max-w-2xl object-cover"
 									alt={rep.user.username}
 								/>
 								<p className="text-slate-500 mt-2">{rep.user.username}</p>
@@ -68,20 +75,66 @@ export const CommentItem = ({ id, title, text, setStatus }) => {
 	);
 };
 
-export const CommentForm = () => {
-	//todo: if not login disable commenting -> redux
+export const CommentForm = ({ postId, isRes, setRes }) => {
+	const { data, loading } = useFetchUser();
+	const text_area = useRef();
+	const [title, setTitle] = useState("");
+	useEffect(() => {
+		if (!data && !loading) {
+			return (
+				<div>
+					<h1>You must be logged in to write comment</h1>
+				</div>
+			);
+		}
+	}, [data, loading]);
+
+	if (!localStorage.getItem("token")) {
+		return (
+			<div>
+				<h1>You must be logged in to write comment</h1>
+			</div>
+		);
+	}
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		postComment({
+			user: data.id,
+			post: postId,
+			title,
+			caption: text_area.current.value,
+			reply_to: isRes.st ? isRes.userid : null,
+		});
+		setTitle("");
+		text_area.current.value = "";
+		setRes({ username: "", userid: null, st: false });
+	};
+
 	return (
 		<form>
 			<Row>
 				<Label src="cmt-title" text="title" />
-				<MdInput type="text" text="title..." id="cmt-title" />
+				<MdInput
+					type="text"
+					text="title..."
+					id="cmt-title"
+					value={title}
+					setValue={setTitle}
+				/>
 			</Row>
 			<Row>
 				<Label src="cmt-text" text="comment" />
-				<TextArea text="enter your comment..." id="cmt-text" />
+				<TextArea
+					text="enter your comment..."
+					id="cmt-text"
+					refrence={text_area}
+				/>
 			</Row>
 			<div className="px-8 pt-4 pb-2">
-				<FullButton adClass="shadow-md">Submit</FullButton>
+				<FullButton adClass="shadow-md" onClick={onSubmit}>
+					Submit
+				</FullButton>
 			</div>
 		</form>
 	);

@@ -28,12 +28,12 @@ export const PortalInput = ({ text, name, value, setValue , setSubmit }) => {
 	);
 };
 
-export const TextArea = ({ text, ref, id, name }) => {
+export const TextArea = ({ text, refrence, id, name }) => {
 	return (
 		<textarea
 			name={name}
 			id={id}
-			ref={ref}
+			ref={refrence}
 			rows="10"
 			placeholder={text}
 			className="w-full block border-2 border-gray-300 border-dashed outline-offset-2

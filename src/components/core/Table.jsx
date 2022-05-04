@@ -9,7 +9,6 @@ const Table = ({data}) => {
                     <th>title</th>
                     <th>like</th>
                     <th>created</th>
-                    <th>updated</th>
                     <th>status</th>
                 </tr>
             </thead>
@@ -18,9 +17,8 @@ const Table = ({data}) => {
                     <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.title}</td>
-                        <td>{row.like}</td>
-                        <td>{row.created_at}</td>
-                        <td>{row.updated_at}</td>
+                        <td>{row.like_count}</td>
+                        <td>{row.created_at.split('T')[0]}</td>
                         <td>{row.status}</td>
                     </tr>
                 ))}

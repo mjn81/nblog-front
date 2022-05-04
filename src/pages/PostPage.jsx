@@ -35,15 +35,16 @@ const PostPage = () => {
 								</h1>
 								<section className="flex flex-wrap h-fit w-fit">
 									{data.categories.map((cat, index) => (
-										<Badge
-											key={index}
-											adClass="mr-1 mb-1.5 lg:mb-0"
-											bgColor={
-												COLORS[Math.floor(Math.random() * COLORS_LENGTH)]
-											}
-										>
-											{cat.title}
-										</Badge>
+										<Link key={index} to={`/cat/${cat.title}`}>
+											<Badge
+												adClass="mr-1 mb-1.5 lg:mb-0"
+												bgColor={
+													COLORS[Math.floor(Math.random() * COLORS_LENGTH)]
+												}
+											>
+												{cat.title}
+											</Badge>
+										</Link>
 									))}
 								</section>
 							</header>
@@ -64,7 +65,7 @@ const PostPage = () => {
 								</span>
 								<span className="lg:ml-5">
 									<FontAwesomeIcon icon={faCalendar} className="mr-1.5" />
-									published at : {data.created_at.split('T')[0]}
+									published at : {data.created_at.split("T")[0]}
 								</span>
 								<span className="lg:ml-5">
 									<FontAwesomeIcon icon={faComments} className="mr-1.5" />
@@ -75,7 +76,7 @@ const PostPage = () => {
 						</article>
 					</SimpleCard>
 
-					<CommentSection comments={data.comments} />
+					<CommentSection postId={id} comments={data.comments} />
 				</ContentLayout>
 			)}
 		</div>

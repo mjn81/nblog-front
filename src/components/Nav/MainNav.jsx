@@ -59,9 +59,9 @@ const MainNav = ({ categories }) => {
                 </ul>
             </nav>
             <section className="w-1/4 flex items-center justify-end">
-                <OutlineButton adclass="text-2xl mr-3 text-indigo-600">
+                {/* <OutlineButton adclass="text-2xl mr-3 text-indigo-600">
                     <FontAwesomeIcon icon={faMoon}/>
-                </OutlineButton>
+                </OutlineButton> */}
                 <SquareButton adclass="mr-3" onClick={onSearchClick}>
                     <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     <Search visible={searchV} setVisible={setSV}/>

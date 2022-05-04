@@ -11,9 +11,13 @@ const Home = () => {
 	const plimit = 12;
 	const [limit, setLimit] = useState({ start: 0, end: plimit });
 	const active = limit.start / plimit;
+	console.log(data);
+	
+	
+	
 	return (
 		<>
-			<Slider />
+			{data && <Slider data={data.results} />}
 			<ContentLayout>
 				<SectionCard title="latest news">
 					{data &&

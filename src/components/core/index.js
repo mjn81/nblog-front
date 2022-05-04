@@ -1,6 +1,6 @@
 export * from './Badge';
 export * from './ScrollNews';
-export * from './Buttton';
+export * from './Button';
 export * from './SectionCard';
 export * from './Card';
 export * from './Separator';
