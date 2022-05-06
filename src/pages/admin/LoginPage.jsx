@@ -1,5 +1,6 @@
 import { useNavigate, Link, Navigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { ToastContainer , toast } from 'react-toastify';
 import {
 	FullButton,
 	Label,
@@ -7,13 +8,10 @@ import {
 	Row,
 	SimpleCard,
 } from "../../components/core";
-import userContext from "../../context/UserContext";
 import { login } from "../../api";
 
 const LoginPage = () => {
 	const navigator = useNavigate();
-
-	const { dispatch } = useContext(userContext);
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -30,8 +28,7 @@ const LoginPage = () => {
 				navigator("/user/dashboard");
 			})
 			.catch((err) => {
-				// TODO : toastify
-				console.log(err.response.data.detail);
+				toast.error(err.response.data.detail);
 			});
 	};
 	if (localStorage.getItem("token")) {
@@ -40,6 +37,7 @@ const LoginPage = () => {
 
 	return (
 		<div className="w-full h-screen flex items-center justify-center">
+			<ToastContainer />
 			<form className="w-1/5">
 				<SimpleCard extraClass="min-w-[350px]">
 					<Row>

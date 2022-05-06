@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast , ToastContainer } from "react-toastify";
 import { register } from "../../api";
 
 import {
@@ -22,7 +23,7 @@ const RegisterPage = () => {
 	const onRegisterClick = (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
-			// TODO : toastify
+			toast.error('password and confirm password don\'t match !!')
 			return;
 		}
 		register({
@@ -42,14 +43,18 @@ const RegisterPage = () => {
 			localStorage.setItem("token", res.data.access);
 			localStorage.setItem("rtoken", res.data.refresh);
 			navigator("/user/dashboard");
-        }).catch((err) => {
-            // TODO : toastify
-            console.log(err);
+		}).catch((err) => {
+			Object.values(err.response.data).forEach((item) => {
+				item.forEach((i) => {
+					toast.error(i);
+				});
+			});
         });
 	};
 
 	return (
 		<div className="w-full h-screen flex items-center justify-center">
+			<ToastContainer />
 			<form className="w-1/5">
 				<SimpleCard extraClass="min-w-[450px]">
 					<Row>

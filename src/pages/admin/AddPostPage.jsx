@@ -36,20 +36,16 @@ const AddPost = () => {
 	];
 	const [category, setCategory] = useState([]);
 	const { data } = useFetchCategory();
-
-	const onImageClick = (e) => {
-		setImage(e.currentTarget.files);
-		console.log(image);
-	}
 	const onAddClick = () => {
-		const form = new FormData(image);
-		addPost({
-			title,
-			description: content,
-			status: status,
-			categories: category.map(item => item.id),
-			image:form
+		const form = new FormData();
+		form.append('image', image);
+		form.append('title', title);
+		form.append('description', content);
+		form.append('status', status);
+		category.forEach(item => {
+			form.append('categories',  item.id);
 		});
+		addPost(form);
 	};
 	return (
 		<div className="grid grid-cols-4 gap-6 mx-16 mt-6">
@@ -109,7 +105,12 @@ const AddPost = () => {
 					</Row>
 					<Row>
 						<Label text="image" src="img" />
-						<input type="file" onChange={onImageClick} id="img" />
+						<input
+							type="file"
+							accept="image/*"
+							onChange={(e) => setImage(e.target.files[0])}
+							id="img"
+						/>
 					</Row>
 					<Row>
 						<FullButton onClick={onAddClick}>Add</FullButton>

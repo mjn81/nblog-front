@@ -18,6 +18,7 @@ import Info from "./pages/admin/Info";
 import NotFound from "./pages/404";
 import SearchPage from "./pages/SearchPage";
 import RegisterPage from "./pages/admin/RegisterPage";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
@@ -42,7 +43,7 @@ function App() {
 						</Route>
 					</Route>
 
-					<Route path="*" element={<NotFound/>} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</Router>
 		</Provider>
