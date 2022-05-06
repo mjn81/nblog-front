@@ -15,39 +15,40 @@ import { useFetchCategory } from "../../hooks";
 
 const AddPost = () => {
 	const editor = useRef(null);
-	const image = useRef(null);
+	const [image, setImage] = useState(null);
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
-	const [status, setStatus] = useState("");
+	const [status, setStatus] = useState(2);
 	// published, archived, draft
 	const stats = [
 		{
 			text: "publish",
-			value: "published",
+			value: 2,
 		},
 		{
 			text: "archive",
-			value: "archived",
+			value: 1,
 		},
 		{
 			text: "draft",
-			value: "draft",
+			value: 0,
 		},
 	];
 	const [category, setCategory] = useState([]);
 	const { data } = useFetchCategory();
 
+	const onImageClick = (e) => {
+		setImage(e.currentTarget.files);
+		console.log(image);
+	}
 	const onAddClick = () => {
-		console.log(image.current.files[0]);
-		const formData = new FormData();
-		formData.append(image.current.files[0].name , image.current.files[0]); 
-        // TODO : a set of problems for adding post
-        addPost({
+		const form = new FormData(image);
+		addPost({
 			title,
 			description: content,
 			status: status,
-			image: formData,
-			categories: category,
+			categories: category.map(item => item.id),
+			image:form
 		});
 	};
 	return (
@@ -108,7 +109,7 @@ const AddPost = () => {
 					</Row>
 					<Row>
 						<Label text="image" src="img" />
-						<input type="file" ref={image} id="img" />
+						<input type="file" onChange={onImageClick} id="img" />
 					</Row>
 					<Row>
 						<FullButton onClick={onAddClick}>Add</FullButton>

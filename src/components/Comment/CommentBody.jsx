@@ -12,7 +12,6 @@ import { postComment } from "../../api";
 
 export const CommentItem = ({ id, title, text, setStatus }) => {
 	const { data } = useFetchComments(id);
-	// TODO: fix comment setStatus bug -- problem from backend
 	return (
 		<section className="bg-gray-100 p-6 rounded">
 			{data && (
@@ -32,7 +31,7 @@ export const CommentItem = ({ id, title, text, setStatus }) => {
 							onClick={() =>
 								setStatus({
 									username: data.user.username,
-									userid: data.user.id,
+									userid: data.id,
 									st: true,
 								})
 							}

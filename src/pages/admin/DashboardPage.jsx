@@ -5,10 +5,10 @@ import { useEffect } from "react";
 
 const DashboardPage = () => {
 	const navigator = useNavigate();
-	const { data, loading } = useFetchUser();
+	const { data, loading , error } = useFetchUser();
 
     useEffect(() => {
-		if (!data && !loading) {
+		if (!data && !loading && !!error) {
 			navigator("/user/login");
 		}
     }, [data, loading]);

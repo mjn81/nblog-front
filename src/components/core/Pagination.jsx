@@ -1,5 +1,5 @@
 const Pagination = ({pageNumber , active , setLimit , plimit}) => {
-    if(pageNumber < 8){
+    if (pageNumber < 8) {
         return (
             <ul className="flex w-fit space-x-2  rounded-lg overflow-hidden font-bold text-gray-600">
                 {Array(pageNumber).fill().map((_,index)=>(

@@ -2,7 +2,7 @@ const CategorySelect = ({ data, category, setCategory }) => {
 	return (
 		<div className="h-72 border overflow-scroll border-gray-200">
 			{data.map((cat, index) => {
-				const isSelected = category.find((item) => item.title === cat.title);
+				const isSelected = category.find((item) => item.id === cat.id);
 				return (
 					<div
 						className={
@@ -12,7 +12,7 @@ const CategorySelect = ({ data, category, setCategory }) => {
 						onClick={() => {
 							if (!!isSelected) {
 								setCategory(
-									category.filter((item) => item.title !== cat.title)
+									category.filter((item) => item.id !== cat.id)
 								);
 								return;
 							}
