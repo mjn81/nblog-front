@@ -11,7 +11,7 @@ export const Post = ({ id, title, badges, img, description, date }) => {
 		Math.min(limit, trimmedStr.lastIndexOf(" "))
 	);
 	useEffect(() => {
-		document.querySelector(`#p_${id}`).innerHTML = shortStr;
+		document.querySelector(`#p_${id}`).innerHTML = shortStr + (shortStr.length > 100 ? '...' : '');
 	}, [id])
 	const localeDate = new Date(date);
 	return (

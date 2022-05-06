@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import JoditEditor from "jodit-react";
-
+import { toast, ToastContainer } from 'react-toastify';
 import {
 	FullButton,
 	Label,
@@ -45,11 +45,16 @@ const AddPost = () => {
 		category.forEach(item => {
 			form.append('categories',  item.id);
 		});
-		addPost(form);
+		addPost(form).then(() => {
+			toast.success('post successfully added');
+		}).catch(err => {
+			toast.error('something wrong happend!!');
+		});
 	};
 	return (
 		<div className="grid grid-cols-4 gap-6 mx-16 mt-6">
 			<div className="col-span-3">
+				<ToastContainer />
 				<SimpleCard>
 					<h2 className="text-3xl">Add Post</h2>
 					<form className="my-6">
