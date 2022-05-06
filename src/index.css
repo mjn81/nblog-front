@@ -4,7 +4,7 @@
 
 
 .scroll-animation {
-    animation: scanim 11s linear infinite;
+    animation: scanim 15s linear infinite;
 }
 
 .scroll-animation:hover {
@@ -16,7 +16,7 @@
         left: 105%;
     }
     100% {
-        left: -10%;
+        left: -100%;
     }
 }
 

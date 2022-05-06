@@ -1,6 +1,7 @@
 import { Badge } from "./Badge";
 import { Link } from "react-router-dom";
 import { COLORS, COLORS_LENGTH } from "../../constants";
+import { useEffect } from "react";
 
 export const Post = ({ id, title, badges, img, description, date }) => {
 	const limit = 250;
@@ -9,6 +10,9 @@ export const Post = ({ id, title, badges, img, description, date }) => {
 		0,
 		Math.min(limit, trimmedStr.lastIndexOf(" "))
 	);
+	useEffect(() => {
+		document.querySelector(`#p_${id}`).innerHTML = shortStr;
+	}, [id])
 	const localeDate = new Date(date);
 	return (
 		<article className="bg-white my-5 relative p-6 rounded-lg lg:grid lg:grid-cols-7 lg:gap-4 transition-shadow duration-200 ease-in p-title hover:shadow-lg">
@@ -46,9 +50,7 @@ export const Post = ({ id, title, badges, img, description, date }) => {
 						{title}
 					</h1>
 				</Link>
-				<p className="text-sm sm:text-base lg:font-light text-gray-700">
-					{shortStr} {description.length > limit ? "..." : ""}
-				</p>
+				<p className="text-sm sm:text-base lg:font-light text-gray-700" id={`p_${id}`}></p>
 			</section>
 		</article>
 	);

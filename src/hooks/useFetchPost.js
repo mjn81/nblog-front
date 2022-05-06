@@ -8,7 +8,7 @@ import {
 	getPostByCategory,
 } from "../api";
 
-export const useFetchPost = (id) => useFetch(() => getPost(id));
+export const useFetchPost = (id) => useFetch(() => getPost(id) , [id]);
 
 export const useFetchPostContent = (id) => useFetch(() => getPostContent(id));
 
